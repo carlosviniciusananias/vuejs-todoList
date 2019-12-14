@@ -13,6 +13,10 @@ const router = new VueRouter({
     {
       path: '/cadastro',
       component: HelloWorld
+    },
+    {
+      path: '/',
+      redirect: '/cadastro'
     }
   ]
 })
