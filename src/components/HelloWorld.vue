@@ -2,7 +2,12 @@
   <div class="hello">
     <h1>{{ msg }}</h1>
     <div class="container">
-      <table class="table table-striped">
+      <div
+        class="alert alert-warning"
+        role="alert"
+        v-show="funcionarios.length === 0"
+      >Não há funcionários :(</div>
+      <table class="table table-striped" v-show="funcionarios.length > 0">
         <thead>
           <tr>
             <td>#</td>
