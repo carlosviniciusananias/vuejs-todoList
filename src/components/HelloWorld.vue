@@ -9,15 +9,19 @@
             <td>Nome</td>
             <td>Sobrenome</td>
             <td>Idade</td>
+            <td></td>
           </tr>
         </thead>
 
         <tbody>
-          <tr v-for="funcionario in funcionarios" v-bind:key="funcionario.id">
+          <tr v-for="(funcionario, index) in funcionarios" v-bind:key="funcionario.id">
             <td>{{ funcionario.id }}</td>
             <td>{{ funcionario.name }}</td>
             <td>{{ funcionario.lastname }}</td>
             <td>{{ funcionario.idade }}</td>
+            <td>
+              <button class="btn btn-danger" v-on:click="remove(index)">Remove</button>
+            </td>
           </tr>
         </tbody>
       </table>
@@ -43,6 +47,13 @@ export default {
         { id: 4, name: "Daniel", lastname: "Vinicius", idade: "59" }
       ]
     };
+  },
+  //aqui ficam todas as funções que seram definidas na página do vuejs
+  methods: {
+    remove(id) {
+      //deletando posição quando encontra o valor
+      this.funcionarios.splice(id, 1);
+    }
   }
 };
 </script>
